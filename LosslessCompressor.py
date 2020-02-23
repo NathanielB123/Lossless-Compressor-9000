@@ -39,7 +39,6 @@ def read_compressed():
     return meta_data, converted_file_data
         
 def write_file(metadata,filedata):
-    print(filedata)
     print("Enter file name to save as")
     file_name=input()
     file_handle1=open(file_name+".meta","wb")
@@ -161,7 +160,7 @@ def dictionary_compress(file_data,dictionary):
             letter_num-=len(temp_word)-1
         if debug+5<time():
                         debug=time()
-                        print("This seems to be taking a while; "str(letter_num/len(file_data)*100)+"% complete (final stage now!)")
+                        print("This seems to be taking a while; "+str(letter_num/len(file_data)*100)+"% complete (final stage now!)")
         new_dictionary[END_STRING]=1
     return compressed_data,new_dictionary
 
