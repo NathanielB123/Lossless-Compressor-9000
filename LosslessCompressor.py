@@ -21,13 +21,13 @@ def read_file():
     return file_data
 
 def read_compressed():
-    print("Enter file name (do not enter a file extension and make sure both .file and .meta files are present and in the same directory)")
+    print("Enter file name (do not enter a file extension and make sure both .data and .meta files are present and in the same directory)")
     file_name=input()
     try:
         file_handle1=open(file_name+".meta","rb")
         meta_data=load(file_handle1)
         file_handle1.close()
-        file_handle2=open(file_name+".file","rb")
+        file_handle2=open(file_name+".data","rb")
         file_data=file_handle2.read()
         file_handle2.close()
         converted_file_data=""
@@ -44,7 +44,7 @@ def write_file(metadata,filedata):
     file_handle1=open(file_name+".meta","wb")
     dump(metadata, file_handle1)
     file_handle1.close()
-    file_handle2=open(file_name+".file","wb")
+    file_handle2=open(file_name+".data","wb")
     binary_array=[]
     if not len(filedata)%CHUNK_SIZE==0:
         for _ in range(0,CHUNK_SIZE-len(filedata)%CHUNK_SIZE):
