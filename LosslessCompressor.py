@@ -161,7 +161,7 @@ def dictionary_compress(file_data,dictionary):
             letter_num-=len(temp_word)-1
         if debug+5<time():
                         debug=time()
-                        print(letter_num/len(file_data))
+                        print("This seems to be taking a while; "str(letter_num/len(file_data)*100)+"% complete (final stage now!)")
         new_dictionary[END_STRING]=1
     return compressed_data,new_dictionary
 
