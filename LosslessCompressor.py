@@ -1,5 +1,4 @@
 from time import time
-from struct import pack
 from _pickle import dump, load
 NUMBER_BASE=2 #For now, do not change
 END_STRING="END" #String to represent the end of the file. Can be any string but has to be the same when compressing and decompressing.
@@ -22,7 +21,7 @@ def read_file():
     return file_data
 
 def read_compressed():
-    print("Enter file name (do not enter a file extension and make sure both .file and .meta files are present)")
+    print("Enter file name (do not enter a file extension and make sure both .file and .meta files are present and in the same directory)")
     file_name=input()
     try:
         file_handle1=open(file_name+".meta","rb")
