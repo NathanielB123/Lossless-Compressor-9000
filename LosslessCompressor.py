@@ -83,7 +83,7 @@ def build_dictionary(file_data):
                     dictionary[file_data[min_index:max_index]][1].append([min_index,max_index])
             if debug+5<time():
                 debug=time()
-                print("This seems to be taking a while, "+str(min_index/(len(file_data)-1)*100)+"% complete")
+                print("This seems to be taking a while; "+str(min_index/(len(file_data)-1)*100)+"% complete")
     print("Dictionary construction phase 1 complete")
     removing_conflicts=False
     for key in list(dictionary.keys()):
@@ -114,7 +114,7 @@ def build_dictionary(file_data):
                                         break
                                     if debug+5<time():
                                             debug=time()
-                                            print("This seems to be taking a while "+str(len(dictionary))+" items need checking")
+                                            print("This seems to be taking a while; "+str(len(dictionary))+" items need checking")
                                 break
     print("Dictionary construction phase 2 complete")
     return dictionary
