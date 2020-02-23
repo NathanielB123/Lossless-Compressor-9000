@@ -1,0 +1,3 @@
+Hello this is a text file that will be compressed.
+The more repeated strings of letters there are, the more space will be saved.
+This is a very small file with not much repeating so it shows close to a worst-case scenario.
