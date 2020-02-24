@@ -3,7 +3,7 @@ from _pickle import dump, load
 NUMBER_BASE=2 #For now, do not change
 END_STRING="END" #String to represent the end of the file. Can be any string but has to be the same when compressing and decompressing.
 CHUNK_SIZE=8 #For now, do not change
-WORD_SIZE_LIMIT=100 #Increase for better compression and a cost to performance
+WORD_SIZE_LIMIT=100 #Increase for better compression at a cost to performance
 
 def read_file():
     print("Enter file name (make sure file is a text file and is in the same directory)")
@@ -73,8 +73,8 @@ def build_dictionary(file_data):
     debug=time()
     dictionary={}
     for min_index in range(0,len(file_data)-1):
-        for max_index in range(min_index+2,len(file_data)+1):
-            if not (max_index-min_index)>len(file_data)/2 and not (max_index-min_index)>WORD_SIZE_LIMIT and not file_data[min_index:max_index]==END_STRING:
+        for max_index in range(min_index+2,min((len(file_data)+1),min_index+WORD_SIZE_LIMIT)):
+            if not (max_index-min_index)>len(file_data)/2 and not file_data[min_index:max_index]==END_STRING:
                 if not file_data[min_index:max_index] in dictionary.keys():
                     dictionary[file_data[min_index:max_index]]=[1,[[min_index,max_index]],False]
                 else:
